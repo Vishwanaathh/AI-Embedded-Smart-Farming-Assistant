@@ -5,8 +5,8 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 
-m = pd.read_csv('./soil_moisture.csv')
-p = pd.read_csv('./Smart_Farming_Crop_Yield_2024.csv')
+m = pd.read_csv('./datasets/soil_moisture.csv')
+p = pd.read_csv('./datasets/Smart_Farming_Crop_Yield_2024.csv')
 
 moist = m[['temperature','humidity','ph','rainfall','soil_moisture']]
 
@@ -41,18 +41,6 @@ xtrain, xtest, ytrain, ytest = train_test_split(X, y, test_size=0.2, random_stat
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(xtrain, ytrain)
 
-temp = float(input())
-hum = float(input())
-ph_val = float(input())
-rain = float(input())
-soil = float(input())
 
-prediction = model.predict([[temp, hum, ph_val, rain, soil]])
-
-irrigation = prediction[0][0]
-ph_adjust = prediction[0][1]
-
-print("Irrigation needed (mm):", round(irrigation, 2))
-print("pH correction amount:", round(ph_adjust, 2))
 
 joblib.dump(model, "smart_farming_recommendation.pkl")
