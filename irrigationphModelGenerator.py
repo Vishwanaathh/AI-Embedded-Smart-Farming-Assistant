@@ -43,4 +43,4 @@ model.fit(xtrain, ytrain)
 
 
 
-joblib.dump(model, "smart_farming_recommendation.pkl")
+joblib.dump(model, "irrigation_ph_recommender.pkl")
