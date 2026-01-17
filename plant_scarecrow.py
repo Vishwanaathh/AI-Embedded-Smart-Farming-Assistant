@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 from ultralytics import YOLO
+import winsound
+import time  
 
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
@@ -15,6 +17,9 @@ model = YOLO("./best.pt")
 ret, prev_frame = cap.read()
 prev_gray = cv2.cvtColor(prev_frame, cv2.COLOR_BGR2GRAY)
 prev_gray = cv2.GaussianBlur(prev_gray, (21, 21), 0)
+
+last_sound_time = 0        
+sound_cooldown = 5         
 
 while True:
     ret, frame = cap.read()
@@ -39,6 +44,12 @@ while True:
             boxes = results[0].boxes
             names = model.names
             top_idx = boxes.conf.argmax().item()
+
+            
+            if time.time() - last_sound_time > sound_cooldown:
+                winsound.PlaySound("./alert_tone.wav", winsound.SND_ASYNC)
+                last_sound_time = time.time()
+
             label = names[int(boxes.cls[top_idx])]
             confidence = float(boxes.conf[top_idx])
 
