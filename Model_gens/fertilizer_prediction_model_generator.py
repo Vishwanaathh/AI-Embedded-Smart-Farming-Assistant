@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 import joblib
 
-df=pd.read_csv("./datasets/Fertilizer Prediction.csv")
+df=pd.read_csv("../datasets/Fertilizer Prediction.csv")
 
 
 
