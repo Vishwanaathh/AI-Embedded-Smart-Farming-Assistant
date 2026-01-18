@@ -1,0 +1,14 @@
+umm yesh so this the developer of this project-YV Parashuram (Patent pending lol)
+the plan is to integrate all this software with hardware
+if you wanna use this software make sure to download all the required python modules
+pip install opencv-python
+pip install numpy
+pip install pandas
+pip install scikit-learn
+pip install lightgbm
+pip install catboost
+pip install xgboost
+pip install joblib
+pip install ultralytics
+pip install matplotlib
+pip install seaborn
