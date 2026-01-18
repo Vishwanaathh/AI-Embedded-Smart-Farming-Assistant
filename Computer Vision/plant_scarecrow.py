@@ -12,7 +12,7 @@ if not cap.isOpened():
 
 print("Camera is open")
 
-model = YOLO("./best.pt")
+model = YOLO("../best.pt")
 
 ret, prev_frame = cap.read()
 prev_gray = cv2.cvtColor(prev_frame, cv2.COLOR_BGR2GRAY)
@@ -47,7 +47,7 @@ while True:
 
             
             if time.time() - last_sound_time > sound_cooldown:
-                winsound.PlaySound("./alert_tone.wav", winsound.SND_ASYNC)
+                winsound.PlaySound("../alert_tone.wav", winsound.SND_ASYNC)
                 last_sound_time = time.time()
 
             label = names[int(boxes.cls[top_idx])]
@@ -71,3 +71,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
