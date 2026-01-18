@@ -3,7 +3,7 @@ import joblib
 print("welcome to crop recommendation using LightGBM")
 
 import pandas as pd
-df=pd.read_csv("../Crop_recommendation.csv")
+df=pd.read_csv("../datasets/Crop_recommendation.csv")
 
 
 final=df[['Nitrogen', 'phosphorus', 'potassium', 'temperature', 'humidity', 'ph',
