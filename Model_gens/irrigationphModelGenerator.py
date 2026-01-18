@@ -5,8 +5,8 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 
-m = pd.read_csv('./datasets/soil_moisture.csv')
-p = pd.read_csv('./datasets/Smart_Farming_Crop_Yield_2024.csv')
+m = pd.read_csv('../datasets/soil_moisture.csv')
+p = pd.read_csv('../datasets/Smart_Farming_Crop_Yield_2024.csv')
 
 moist = m[['temperature','humidity','ph','rainfall','soil_moisture']]
 
